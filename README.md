@@ -29,7 +29,7 @@
 - ACRA crash reporting (Planning to Move on Firebase)
 - Data Mining with Apriori Algorithm.
 
-### What Is Not Included (feel free to Ping me if you want complete solution):- 
+### What Is Not Included :- 
 
 - Back End Web Server with Web API 
 - Admin Panel
@@ -51,11 +51,6 @@ Log it into Issue Tracker and please don't mail me. I am going to stop to replyi
 
     <!--
       ~ .
-      ~ Copyright Copyright (c) 2017 Hitesh Sahu(hiteshsahu.com)
+      ~ Copyright Copyright (c) 2018 Team Datalicious(team@datalicious.com)
       ~
-      ~ Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
-      ~
-      ~ http://www.apache.org/licenses/LICENSE-2.0
-      ~
-      ~ Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
       -->
