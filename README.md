@@ -4,7 +4,7 @@
 
  # Try the Demo on PlayStore
  
- # https://play.google.com/store/apps/details?id=com.hitesh_sahu.retailapp&hl=en
+ # https://play.google.com/store/apps/details?id=datalicious.retailapp&hl=en
  
 ![Alt text](https://lh3.googleusercontent.com/PjO9tgrzKjF6MfYQasTqPeErOhjAn4O6dFNhPFOCnm0YDaupeMPyG2w9ksPRFTl1FBs=h900-rw)
 
