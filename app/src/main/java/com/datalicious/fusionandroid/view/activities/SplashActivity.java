@@ -20,6 +20,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.datalicious.fusionandroid.R;
+import com.datalicious.fusionandroid.analytics.AnalyticsUtil;
 import com.google.firebase.analytics.FirebaseAnalytics;
 
 
@@ -29,8 +30,6 @@ public class SplashActivity extends FragmentActivity {
     private ImageView logo;
     private TextView appTitle;
     private TextView appSlogan;
-
-    private FirebaseAnalytics firebaseAnalytics;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,22 +49,8 @@ public class SplashActivity extends FragmentActivity {
         appTitle.setTypeface(tf);
         appSlogan.setTypeface(tf);
 
-        firebaseAnalytics = FirebaseAnalytics.getInstance(this);
-
-        // Firebase screenView
-        firebaseAnalytics.setCurrentScreen(this, "splash_screen", getClass().getSimpleName());
-
-        // GTM screenView
-        Bundle bundle = new Bundle();
-        bundle.putString("screen_name", "splash_screen_ev");
-        firebaseAnalytics.logEvent("generic_screen_view", bundle);
-
-        // Firebase + GTM event
-        Bundle bundle1 = new Bundle();
-        bundle1.putString("event_category", "Test");
-        bundle1.putString("event_action", "tap");
-        bundle1.putString("event_label", "dummy_tap");
-        firebaseAnalytics.logEvent("generic_event", bundle1);
+        AnalyticsUtil.getInstance().pushScreenView(this);
+        AnalyticsUtil.getInstance().pushEventTest();
 
         if (savedInstanceState == null) {
             flyIn();

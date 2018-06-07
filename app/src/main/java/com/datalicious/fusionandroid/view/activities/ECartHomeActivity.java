@@ -75,8 +75,6 @@ public class ECartHomeActivity extends AppCompatActivity {
         itemCount = CenterRepository.getCenterRepository().getListOfProductsInShoppingList()
                 .size();
 
-        //	makeFakeVolleyJsonArrayRequest();
-
         offerBanner = ((TextView) findViewById(R.id.new_offers_banner));
 
         itemCountTextView = (TextView) findViewById(R.id.item_count);
@@ -299,7 +297,7 @@ public class ECartHomeActivity extends AppCompatActivity {
         new WhatsNewDialog(this);
     }
 
-    /*
+    /**
      * Toggles Between Offer Banner and Checkout Amount. If Cart is Empty SHow
      * Banner else display total amount and item count
      */
@@ -315,60 +313,21 @@ public class ECartHomeActivity extends AppCompatActivity {
         }
     }
 
-    /*
+    /**
      * get total checkout amount
      */
     public BigDecimal getCheckoutAmount() {
         return checkoutAmount;
     }
 
-	/*
-     * Makes fake Volley request by adding request in fake Volley Queue and
-	 * return mock JSON String plese visit
-	 * com.datalicious.retailapp.domain.mock.FakeHttpStack and
-	 * FakeRequestQueue queu
-	 */
-//	private void makeFakeVolleyJsonArrayRequest() {
-//
-//		JsonArrayRequest req = new JsonArrayRequest(
-//				NetworkConstants.URL_GET_ALL_CATEGORY,
-//				new Response.Listener<JSONArray>() {
-//					@Override
-//					public void onResponse(JSONArray response) {
-//						Log.d(TAG,
-//
-//						response.toString());
-//
-////						Toast.makeText(getApplicationContext(),
-////								"Volley Fake response", Toast.LENGTH_SHORT)
-////								.show();
-//
-//						// hidepDialog();
-//					}
-//				}, new Response.ErrorListener() {
-//					@Override
-//					public void onErrorResponse(VolleyError error) {
-//						VolleyLog.d(TAG, "Error: " + error.getMessage());
-//
-//						Log.e(TAG,
-//								"------------------------" + error.getMessage());
-////						Toast.makeText(getApplicationContext(),
-////								error.getMessage(), Toast.LENGTH_SHORT).show();
-//					}
-//				});
-//
-//		// Adding request to request queue
-//		AppController.getInstance().addToFakeRequestQueue(req);
-//	}
-
-    /*
+    /**
      * Get Number of items in cart
      */
     public int getItemCount() {
         return itemCount;
     }
 
-    /*
+    /**
      * Get Navigation drawer
      */
     public DrawerLayout getmDrawerLayout() {
