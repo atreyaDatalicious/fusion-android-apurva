@@ -25,6 +25,7 @@ import android.widget.TextView;
 import android.widget.TextView.BufferType;
 
 import com.datalicious.fusionandroid.R;
+import com.datalicious.fusionandroid.analytics.AnalyticsUtil;
 import com.datalicious.fusionandroid.model.CenterRepository;
 import com.datalicious.fusionandroid.model.entities.Money;
 import com.datalicious.fusionandroid.model.entities.Product;
@@ -65,6 +66,10 @@ public class ProductDetailsFragment extends Fragment {
     private ClickableViewPager similarProductsPager;
     private ClickableViewPager topSellingPager;
     private Toolbar mToolbar;
+
+    public ProductDetailsFragment() {
+
+    }
 
     /**
      * Instantiates a new product details fragment.
@@ -463,6 +468,13 @@ public class ProductDetailsFragment extends Fragment {
 
             }
         });
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        AnalyticsUtil.getInstance().pushScreenView(getActivity(), "Product Detail Screen");
     }
 
     public void fillProductData() {

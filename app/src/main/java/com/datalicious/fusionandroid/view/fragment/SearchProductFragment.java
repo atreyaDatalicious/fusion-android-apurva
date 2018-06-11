@@ -28,6 +28,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.datalicious.fusionandroid.R;
+import com.datalicious.fusionandroid.analytics.AnalyticsUtil;
 import com.datalicious.fusionandroid.model.entities.Product;
 import com.datalicious.fusionandroid.util.Utils;
 import com.datalicious.fusionandroid.util.Utils.AnimationType;
@@ -83,7 +84,7 @@ public class SearchProductFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
 
-                Toast.makeText(getActivity(), "Selected" + position, 500)
+                Toast.makeText(getActivity(), "Selected" + position, Toast.LENGTH_SHORT)
                         .show();
 
             }
@@ -139,6 +140,13 @@ public class SearchProductFragment extends Fragment {
         });
         return rootView;
 
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        AnalyticsUtil.getInstance().pushScreenView(getActivity(), "Search Screen");
     }
 
     /**

@@ -23,6 +23,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.datalicious.fusionandroid.R;
+import com.datalicious.fusionandroid.analytics.AnalyticsUtil;
 import com.datalicious.fusionandroid.util.PreferenceHelper;
 import com.datalicious.fusionandroid.util.Utils;
 import com.datalicious.fusionandroid.util.Utils.AnimationType;
@@ -239,5 +240,12 @@ public class SettingsFragment extends Fragment {
                 });
 
         return rootView;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        AnalyticsUtil.getInstance().pushScreenView(getActivity(), "Settings Screen");
     }
 }

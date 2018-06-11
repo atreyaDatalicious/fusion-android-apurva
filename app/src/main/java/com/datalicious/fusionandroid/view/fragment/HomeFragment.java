@@ -12,6 +12,8 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
@@ -28,6 +30,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.datalicious.fusionandroid.R;
+import com.datalicious.fusionandroid.analytics.AnalyticsUtil;
 import com.datalicious.fusionandroid.domain.api.ProductCategoryLoaderTask;
 import com.datalicious.fusionandroid.util.Utils;
 import com.datalicious.fusionandroid.util.Utils.AnimationType;
@@ -112,34 +115,6 @@ public class HomeFragment extends Fragment {
 
         new ProductCategoryLoaderTask(recyclerView, getActivity()).execute();
 
-//
-//		if (simpleRecyclerAdapter == null) {
-//			simpleRecyclerAdapter = new CategoryListAdapter(getActivity());
-//			recyclerView.setAdapter(simpleRecyclerAdapter);
-//
-//			simpleRecyclerAdapter
-//					.SetOnItemClickListener(new OnItemClickListener() {
-//
-//						@Override
-//						public void onItemClick(View view, int position) {
-//
-//							if (position == 0) {
-//								CenterRepository.getCenterRepository()
-//										.getAllElectronics();
-//							} else if (position == 1) {
-//								CenterRepository.getCenterRepository()
-//										.getAllFurnitures();
-//							}
-//							Utils.switchFragmentWithAnimation(
-//									R.id.frag_container,
-//									new ProductOverviewFragment(),
-//									((ECartHomeActivity) getActivity()), null,
-//									AnimationType.SLIDE_LEFT);
-//
-//						}
-//					});
-//		}
-
         view.setFocusableInTouchMode(true);
         view.requestFocus();
         view.setOnKeyListener(new View.OnKeyListener() {
@@ -178,4 +153,17 @@ public class HomeFragment extends Fragment {
 
     }
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        AnalyticsUtil.getInstance().pushEventTest();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        AnalyticsUtil.getInstance().pushScreenView(getActivity(), "Home Screen");
+    }
 }

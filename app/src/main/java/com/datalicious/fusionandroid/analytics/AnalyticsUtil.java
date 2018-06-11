@@ -23,15 +23,15 @@ public class AnalyticsUtil {
         return singleton;
     }
 
-    public void pushScreenView(Activity activity) {
+    public void pushScreenView(Activity activity, String screenName) {
         firebaseAnalytics = FirebaseAnalytics.getInstance(activity.getApplicationContext());
 
         // Firebase screenView
-        firebaseAnalytics.setCurrentScreen(activity, "splash_screen", activity.getClass().getSimpleName());
+        firebaseAnalytics.setCurrentScreen(activity, screenName, activity.getClass().getSimpleName());
 
         // GTM screenView
         Bundle bundle = new Bundle();
-        bundle.putString("screen_name", "splash_screen_ev");
+        bundle.putString("screen_name", screenName);
         firebaseAnalytics.logEvent("generic_screen_view", bundle);
     }
 

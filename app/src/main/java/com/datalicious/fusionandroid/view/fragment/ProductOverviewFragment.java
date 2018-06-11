@@ -23,6 +23,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.datalicious.fusionandroid.analytics.AnalyticsUtil;
 import com.flaviofaria.kenburnsview.KenBurnsView;
 import com.datalicious.fusionandroid.R;
 import com.datalicious.fusionandroid.domain.mock.FakeWebServer;
@@ -254,6 +255,8 @@ public class ProductOverviewFragment extends Fragment {
             adapter.addFrag(new ProductListFragment(string), string);
         }
 
+        AnalyticsUtil.getInstance().pushScreenView(getActivity(), "Product Listing Screen");
+        
         viewPager.setAdapter(adapter);
 //		viewPager.setPageTransformer(true,
 //				Utils.currentPageTransformer(getActivity()));

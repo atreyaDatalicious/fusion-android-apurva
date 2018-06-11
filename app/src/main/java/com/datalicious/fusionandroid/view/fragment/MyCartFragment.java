@@ -23,6 +23,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 import com.datalicious.fusionandroid.R;
+import com.datalicious.fusionandroid.analytics.AnalyticsUtil;
 import com.datalicious.fusionandroid.model.CenterRepository;
 import com.datalicious.fusionandroid.util.Utils;
 import com.datalicious.fusionandroid.util.Utils.AnimationType;
@@ -40,10 +41,6 @@ public class MyCartFragment extends Fragment implements OnStartDragListener {
     public MyCartFragment() {
     }
 
-    /**
-     * @param rootView
-     * @param myCartListView
-     */
     public static void updateMyCartFragment(boolean showList) {
 
         if (showList) {
@@ -166,6 +163,13 @@ public class MyCartFragment extends Fragment implements OnStartDragListener {
         });
 
         return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        AnalyticsUtil.getInstance().pushScreenView(getActivity(), "Cart Screen");
     }
 
     @Override

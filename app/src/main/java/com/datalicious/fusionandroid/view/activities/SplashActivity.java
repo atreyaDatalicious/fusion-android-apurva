@@ -49,9 +49,6 @@ public class SplashActivity extends FragmentActivity {
         appTitle.setTypeface(tf);
         appSlogan.setTypeface(tf);
 
-        AnalyticsUtil.getInstance().pushScreenView(this);
-        AnalyticsUtil.getInstance().pushEventTest();
-
         if (savedInstanceState == null) {
             flyIn();
         }
@@ -63,6 +60,13 @@ public class SplashActivity extends FragmentActivity {
                 endSplash();
             }
         }, 3000);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        AnalyticsUtil.getInstance().pushScreenView(this, "Splash Screen");
     }
 
     private void flyIn() {

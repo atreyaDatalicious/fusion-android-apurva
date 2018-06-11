@@ -27,6 +27,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.datalicious.fusionandroid.R;
+import com.datalicious.fusionandroid.analytics.AnalyticsUtil;
 import com.datalicious.fusionandroid.domain.helper.Connectivity;
 import com.datalicious.fusionandroid.domain.mining.AprioriFrequentItemsetGenerator;
 import com.datalicious.fusionandroid.domain.mining.FrequentItemsetData;
@@ -271,6 +272,8 @@ public class ECartHomeActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+
+        AnalyticsUtil.getInstance().pushScreenView(this, "Home Screen Frame");
 
         // Show Offline Error Message
         if (!Connectivity.isConnected(getApplicationContext())) {

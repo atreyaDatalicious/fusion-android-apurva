@@ -22,6 +22,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.datalicious.fusionandroid.R;
+import com.datalicious.fusionandroid.analytics.AnalyticsUtil;
 import com.datalicious.fusionandroid.util.Utils;
 import com.datalicious.fusionandroid.util.Utils.AnimationType;
 import com.datalicious.fusionandroid.view.activities.ECartHomeActivity;
@@ -168,5 +169,12 @@ public class ContactUsFragment extends Fragment {
                 });
 
         return rootView;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        AnalyticsUtil.getInstance().pushScreenView(getActivity(), "Contact Us Screen");
     }
 }

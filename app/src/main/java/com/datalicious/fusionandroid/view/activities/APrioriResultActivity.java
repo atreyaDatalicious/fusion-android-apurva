@@ -22,6 +22,7 @@ import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.Toast;
 
+import com.datalicious.fusionandroid.analytics.AnalyticsUtil;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
@@ -89,6 +90,13 @@ public class APrioriResultActivity extends AppCompatActivity implements OnChartV
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+
+        AnalyticsUtil.getInstance().pushScreenView(this, "Apriori Chart Screen");
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_apriori, menu);
@@ -147,35 +155,6 @@ public class APrioriResultActivity extends AppCompatActivity implements OnChartV
         }
     }
 
-//    private void generateTestData() {
-//        CenterRepository.getInstance().getAprioriItemSetCollection()
-//                .addToItemSetList(new HashSet<>(Arrays.asList("a", "b")));
-//        CenterRepository.getInstance().getAprioriItemSetCollection()
-//                .addToItemSetList(new HashSet<>(Arrays.asList("b", "c", "d")));
-//        CenterRepository.getInstance().getAprioriItemSetCollection()
-//                .addToItemSetList(new HashSet<>(Arrays.asList("a", "c", "d", "e")));
-//        CenterRepository.getInstance().getAprioriItemSetCollection()
-//                .addToItemSetList(new HashSet<>(Arrays.asList("a", "d", "e")));
-//        CenterRepository.getInstance().getAprioriItemSetCollection()
-//                .addToItemSetList(new HashSet<>(Arrays.asList("a", "b", "c")));
-//        CenterRepository.getInstance().getAprioriItemSetCollection()
-//                .addToItemSetList(new HashSet<>(Arrays.asList("a", "b", "c", "d")));
-//        CenterRepository.getInstance().getAprioriItemSetCollection()
-//                .addToItemSetList(new HashSet<>(Arrays.asList("a", "b", "c", "d")));
-//        CenterRepository.getInstance().getAprioriItemSetCollection()
-//                .addToItemSetList(new HashSet<>(Arrays.asList("a", "b", "c", "d")));
-//        CenterRepository.getInstance().getAprioriItemSetCollection()
-//                .addToItemSetList(new HashSet<>(Arrays.asList("a", "b", "c", "d")));
-//        CenterRepository.getInstance().getAprioriItemSetCollection()
-//                .addToItemSetList(new HashSet<>(Arrays.asList("a")));
-//        CenterRepository.getInstance().getAprioriItemSetCollection()
-//                .addToItemSetList(new HashSet<>(Arrays.asList("a", "b", "c")));
-//        CenterRepository.getInstance().getAprioriItemSetCollection()
-//                .addToItemSetList(new HashSet<>(Arrays.asList("a", "b", "d")));
-//        CenterRepository.getInstance().getAprioriItemSetCollection()
-//                .addToItemSetList(new HashSet<>(Arrays.asList("b", "c", "e")));
-//    }
-
     private void drawChart() {
 
         //APRIORI RESULT SET
@@ -231,12 +210,6 @@ public class APrioriResultActivity extends AppCompatActivity implements OnChartV
 
     @Override
     public void onNothingSelected() {
-
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
 
     }
 }
