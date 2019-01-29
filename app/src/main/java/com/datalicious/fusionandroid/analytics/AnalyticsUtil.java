@@ -1,7 +1,6 @@
 package com.datalicious.fusionandroid.analytics;
 
 import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
 
 import com.google.firebase.analytics.FirebaseAnalytics;
@@ -26,8 +25,10 @@ public class AnalyticsUtil {
     public void pushScreenView(Activity activity, String screenName) {
         firebaseAnalytics = FirebaseAnalytics.getInstance(activity.getApplicationContext());
 
+        firebaseAnalytics.setUserId("12345");
+
         // Firebase screenView
-        firebaseAnalytics.setCurrentScreen(activity, screenName, activity.getClass().getSimpleName());
+        firebaseAnalytics.setCurrentScreen(activity, screenName, "Test");
 
         // GTM screenView
         Bundle bundle = new Bundle();

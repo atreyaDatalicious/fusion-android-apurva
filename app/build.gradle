@@ -16,6 +16,8 @@ android {
         applicationId "com.datalicious.fusionandroid"
         minSdkVersion 14
         targetSdkVersion 27
+        versionCode 2
+        versionName "1.1"
     }
 
     buildTypes {
@@ -50,6 +52,8 @@ dependencies {
 
     compile 'com.google.firebase:firebase-core:16.0.0'
     compile 'com.google.android.gms:play-services-tagmanager:16.0.0'
+    implementation 'com.google.firebase:firebase-dynamic-links:16.0.0'
+
 }
 
 apply plugin: 'com.google.gms.google-services'

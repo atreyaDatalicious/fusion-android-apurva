@@ -10,9 +10,12 @@ package com.datalicious.fusionandroid.view.activities;
 
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 import android.view.animation.AnimationUtils;
@@ -21,7 +24,12 @@ import android.widget.TextView;
 
 import com.datalicious.fusionandroid.R;
 import com.datalicious.fusionandroid.analytics.AnalyticsUtil;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.analytics.FirebaseAnalytics;
+import com.google.firebase.dynamiclinks.DynamicLink;
+import com.google.firebase.dynamiclinks.FirebaseDynamicLinks;
+import com.google.firebase.dynamiclinks.ShortDynamicLink;
 
 
 public class SplashActivity extends FragmentActivity {
@@ -35,6 +43,14 @@ public class SplashActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
+        Intent intent = getIntent();
+        String action = intent.getAction();
+        Uri data = intent.getData();
+        Log.d("Apurva DL", "action: " + action);
+        if (data != null) {
+            Log.d("Apurva DL", "data: " + data.toString());
+        }
 
         logo = (ImageView) findViewById(R.id.logo_img);
         appTitle = (TextView) findViewById(R.id.track_txt);
@@ -59,13 +75,12 @@ public class SplashActivity extends FragmentActivity {
             public void run() {
                 endSplash();
             }
-        }, 3000);
+        }, 10000);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-
         AnalyticsUtil.getInstance().pushScreenView(this, "Splash Screen");
     }
 
@@ -115,9 +130,86 @@ public class SplashActivity extends FragmentActivity {
 
     }
 
-    @Override
-    public void onBackPressed() {
-        // Do nothing
-    }
+    public void createDynamicLink() {
+        DynamicLink dynamicLink = FirebaseDynamicLinks.getInstance().createDynamicLink()
+                .setLink(Uri.parse("https://www.apurva.com/test/?dgid=abc&email=xyz"))  // link
+                .setDynamicLinkDomain("apurva.page.link")   //
+                .setAndroidParameters(
+                        new DynamicLink.AndroidParameters.Builder("com.datalicious.fusionandroid")  // apn
+                                .setMinimumVersion(1)     // amv
+                                .build())
+                .setIosParameters(
+                        new DynamicLink.IosParameters.Builder("com.example.ios")    // ibi
+                                .setAppStoreId("123456789")     // isi
+                                .setMinimumVersion("1.0.1")     // imv
+                                .build())
+                .setGoogleAnalyticsParameters(
+                        new DynamicLink.GoogleAnalyticsParameters.Builder()
+                                .setSource("gaSource")      // utm_source
+                                .setMedium("gaMedium")      // utm_medium
+                                .setCampaign("gaCampaign")  // utm_campaign
+                                .build())
+                .setItunesConnectAnalyticsParameters(
+                        new DynamicLink.ItunesConnectAnalyticsParameters.Builder()
+                                .setProviderToken("123456")     // pt
+                                .setCampaignToken("iosCampaignToken")   // ct
+                                .build())
+                .setSocialMetaTagParameters(
+                        new DynamicLink.SocialMetaTagParameters.Builder()
+                                .setTitle("socialTitle")    // st
+                                .setDescription("socialDescription")    // sd
+                                .build())
+                .buildDynamicLink();
 
+        Uri dynamicLinkUri = dynamicLink.getUri();
+
+        Log.d("Apurva DL", "Initial: " + dynamicLinkUri.toString());
+
+        Task<ShortDynamicLink> shortLinkTask = FirebaseDynamicLinks.getInstance().createDynamicLink()
+                .setLink(Uri.parse("https://www.apurva.com/test/?dgid=abc&email=xyz"))
+                .setDynamicLinkDomain("apurva.page.link")
+                .setAndroidParameters(
+                        new DynamicLink.AndroidParameters.Builder("com.datalicious.fusionandroid")
+                                .setMinimumVersion(1)
+                                .build())
+                .setIosParameters(
+                        new DynamicLink.IosParameters.Builder("com.example.ios")
+                                .setAppStoreId("123456789")
+                                .setMinimumVersion("1.0.1")
+                                .build())
+                .setGoogleAnalyticsParameters(
+                        new DynamicLink.GoogleAnalyticsParameters.Builder()
+                                .setSource("gaSource")
+                                .setMedium("gaMedium")
+                                .setCampaign("gaCampaign")
+                                .build())
+                .setItunesConnectAnalyticsParameters(
+                        new DynamicLink.ItunesConnectAnalyticsParameters.Builder()
+                                .setProviderToken("123456")
+                                .setCampaignToken("iosCampaignToken")
+                                .build())
+                .setSocialMetaTagParameters(
+                        new DynamicLink.SocialMetaTagParameters.Builder()
+                                .setTitle("socialTitle")
+                                .setDescription("socialDescription")
+                                .build())
+                .buildShortDynamicLink(ShortDynamicLink.Suffix.SHORT)
+                .addOnCompleteListener(this, new OnCompleteListener<ShortDynamicLink>() {
+                    @Override
+                    public void onComplete(@NonNull Task<ShortDynamicLink> task) {
+                        if (task.isSuccessful()) {
+                            // Short link created
+                            Uri shortLink = task.getResult().getShortLink();
+                            Uri flowchartLink = task.getResult().getPreviewLink();
+
+                            Log.d("Apurva DL", "Short Link: " + shortLink);
+                            Log.d("Apurva DL", "Flowchart Link: " + flowchartLink);
+                        } else {
+                            // Error
+                            // ...
+                            Log.d("Apurva DL", "error in task");
+                        }
+                    }
+                });
+    }
 }
