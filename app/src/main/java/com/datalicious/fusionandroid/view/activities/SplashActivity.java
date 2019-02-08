@@ -31,6 +31,8 @@ import com.google.firebase.dynamiclinks.DynamicLink;
 import com.google.firebase.dynamiclinks.FirebaseDynamicLinks;
 import com.google.firebase.dynamiclinks.ShortDynamicLink;
 
+import java.util.HashMap;
+
 
 public class SplashActivity extends FragmentActivity {
 
@@ -69,6 +71,8 @@ public class SplashActivity extends FragmentActivity {
             flyIn();
         }
 
+        sendAnalyticsData();
+
         new Handler().postDelayed(new Runnable() {
 
             @Override
@@ -78,10 +82,22 @@ public class SplashActivity extends FragmentActivity {
         }, 10000);
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
+    protected void sendAnalyticsData() {
+        AnalyticsUtil.getInstance().pushUserId(this, "u12345id12345");
+        AnalyticsUtil.getInstance().pushUserProperty(this, "custom_user_id", "u12345id12345");
         AnalyticsUtil.getInstance().pushScreenView(this, "Splash Screen");
+        AnalyticsUtil.getInstance().pushEventTest(this);
+
+        HashMap<String, String> map1 = new HashMap<>();
+        map1.put("login_type", "login_normal");
+        map1.put("login_status", "success");
+        AnalyticsUtil.getInstance().pushEvent(this, "login", map1);
+
+        HashMap<String, String> map2 = new HashMap<>();
+        map2.put("product_name", "t_shirt");
+        map2.put("product_id", "p12345");
+        map2.put("product_price", "500");
+        AnalyticsUtil.getInstance().pushEvent(this, "addToCart", map2);
     }
 
     private void flyIn() {

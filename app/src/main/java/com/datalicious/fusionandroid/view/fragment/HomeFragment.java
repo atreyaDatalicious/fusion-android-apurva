@@ -157,7 +157,7 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        AnalyticsUtil.getInstance().pushEventTest();
+        AnalyticsUtil.getInstance().pushEventTest(getActivity());
     }
 
     @Override
