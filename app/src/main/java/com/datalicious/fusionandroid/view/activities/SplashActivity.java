@@ -23,6 +23,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.datalicious.fusionandroid.R;
+import com.datalicious.fusionandroid.analytics.AnalyticsActivity;
 import com.datalicious.fusionandroid.analytics.AnalyticsUtil;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -71,7 +72,9 @@ public class SplashActivity extends FragmentActivity {
             flyIn();
         }
 
-        sendAnalyticsData();
+        AnalyticsUtil.getInstance().pushUserId(this, "u12345id12345");
+        AnalyticsUtil.getInstance().pushUserProperty(this, "custom_user_id", "u12345id12345");
+//        sendAnalyticsData();
 
         new Handler().postDelayed(new Runnable() {
 
@@ -130,7 +133,7 @@ public class SplashActivity extends FragmentActivity {
             public void onAnimationEnd(Animation arg0) {
 
                 Intent intent = new Intent(getApplicationContext(),
-                        ECartHomeActivity.class);
+                        AnalyticsActivity.class);
                 startActivity(intent);
                 finish();
             }

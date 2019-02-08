@@ -1,12 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright (c) 2017. http://hiteshsahu.com- All Rights Reserved
   ~ Unauthorized copying of this file, via any medium is strictly prohibited
   ~ If you use or distribute this project then you MUST ADD A COPY OF LICENCE
   ~ along with the project.
   ~  Written by Hitesh Sahu <hiteshkrsahu@Gmail.com>, 2017.
-  -->
-
+-->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.datalicious.fusionandroid">
 
@@ -17,38 +15,43 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
-        android:name="com.datalicious.fusionandroid.AppController"
+        android:name=".AppController"
         android:allowBackup="true"
         android:icon="@drawable/app_icon"
         android:label="@string/app_name"
         android:theme="@style/MyTheme">
 
-        <!-- Single Activity Model-->
+        <!-- Single Activity Model -->
         <activity
-            android:name="com.datalicious.fusionandroid.view.activities.ECartHomeActivity"
+            android:name=".view.activities.ECartHomeActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait"/>
-
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.datalicious.fusionandroid.view.activities.APrioriResultActivity"
+            android:name=".view.activities.APrioriResultActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
 
         <!-- Splash Activity -->
         <activity
-            android:name="com.datalicious.fusionandroid.view.activities.SplashActivity"
+            android:name=".view.activities.SplashActivity"
             android:theme="@android:style/Theme.NoTitleBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="https" android:host="www.apurva.com"/>
+
+                <data
+                    android:host="www.apurva.com"
+                    android:scheme="https" />
             </intent-filter>
         </activity>
+        <activity android:name=".analytics.AnalyticsActivity"></activity>
     </application>
 
 </manifest>

@@ -58,7 +58,7 @@ public class AnalyticsUtil {
         }
         firebaseAnalytics.logEvent(eventName, bundle);
     }
-    
+
     public void pushEventTest(Context context) {
         firebaseAnalytics = FirebaseAnalytics.getInstance(context);
 
@@ -69,4 +69,16 @@ public class AnalyticsUtil {
         bundle.putString("event_label", "dummy_tap");
         firebaseAnalytics.logEvent("generic_event", bundle);
     }
+
+    public void pushEcomEvent(Context context,String name, Bundle item) {
+        firebaseAnalytics = FirebaseAnalytics.getInstance(context);
+        Bundle ecommerceBundle = new Bundle();
+
+        ecommerceBundle.putBundle("items", item);
+
+      // Log view_item event with ecommerce bundle
+
+        firebaseAnalytics.logEvent(name, ecommerceBundle);
+    }
 }
+

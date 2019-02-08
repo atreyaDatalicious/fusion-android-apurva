@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.datalicious.fusionandroid.analytics.AnalyticsActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+
+        <!--SCREEN VIEWS-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="Screenviews"
+                android:textColor="@color/color_black"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/BtnSV1"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:text="SV1" />
+
+            <Button
+                android:id="@+id/BtnSV2"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:text="SV2" />
+
+            <Button
+                android:id="@+id/BtnSV3"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:text="SV3" />
+
+            <Button
+                android:id="@+id/BtnSV4"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:text="SV4" />
+
+            <Button
+                android:id="@+id/BtnSV5"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:text="SV5" />
+
+            <Button
+                android:id="@+id/BtnSV6"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:text="SV6" />
+
+            <Button
+                android:id="@+id/BtnSV7"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:text="SV7" />
+
+            <Button
+                android:id="@+id/BtnSV8"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:text="SV8" />
+
+            <Button
+                android:id="@+id/BtnSV9"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:text="SV9" />
+
+            <Button
+                android:id="@+id/BtnSV10"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:text="SV10" />
+
+        </LinearLayout>
+
+        <!--CUSTOM EVENTS-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="Custom Events"
+                android:textColor="@color/color_black"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/BtnEV1"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:text="EV1" />
+
+            <Button
+                android:id="@+id/BtnEV2"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:text="EV2" />
+
+            <Button
+                android:id="@+id/BtnEV3"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:text="EV3" />
+
+            <Button
+                android:id="@+id/BtnEV4"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:text="EV4" />
+
+            <Button
+                android:id="@+id/BtnEV5"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:text="EV5" />
+
+        </LinearLayout>
+
+        <!--E COM EVENTS-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="E com Events"
+                android:textColor="@color/color_black"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/Btn1"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:text="Impression" />
+
+            <Button
+                android:id="@+id/Btn2"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:text="Click" />
+
+            <Button
+                android:id="@+id/Btn3"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:text="Detail" />
+
+            <Button
+                android:id="@+id/Btn4"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:text="Add To Cart" />
+
+            <Button
+                android:id="@+id/Btn5"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:text="Checkout 1" />
+
+            <Button
+                android:id="@+id/Btn6"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:text="Checkout 2" />
+
+            <Button
+                android:id="@+id/Btn7"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:text="Checkout 3" />
+
+            <Button
+                android:id="@+id/Btn8"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:text="Purchase" />
+
+            <Button
+                android:id="@+id/Btn9"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:text="Refund" />
+
+            <Button
+                android:id="@+id/Btn10"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:text="Remove Cart" />
+
+            <Button
+                android:id="@+id/Btn11"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:text="Promotion Impressions" />
+
+            <Button
+                android:id="@+id/Btn12"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:text="Promotion Click" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</ScrollView>

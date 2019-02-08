@@ -13,12 +13,7 @@
           "package_name": "com.datalicious.fusionandroid"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "881757672029-494efeiprghakth94q53jfj9ms3oa34k.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
           "current_key": "AIzaSyCNvGMl6kXqPnr0ht1VykhQoDGipd96joY"
@@ -44,12 +39,7 @@
           "package_name": "com.datalicious.news"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "881757672029-494efeiprghakth94q53jfj9ms3oa34k.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
           "current_key": "AIzaSyCNvGMl6kXqPnr0ht1VykhQoDGipd96joY"
@@ -75,12 +65,7 @@
           "package_name": "com.example.detikhandson.detikhandsontest"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "881757672029-494efeiprghakth94q53jfj9ms3oa34k.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
           "current_key": "AIzaSyCNvGMl6kXqPnr0ht1VykhQoDGipd96joY"

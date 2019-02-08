@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/fusion-android-app.iml" filepath="$PROJECT_DIR$/fusion-android-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fusion-android-apurva.iml" filepath="$PROJECT_DIR$/fusion-android-apurva.iml" />
     </modules>
   </component>
 </project>
